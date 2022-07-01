@@ -79,7 +79,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'crypto_site_db',
         'USER': 'postgres',
-        'PASSWORD': str(os.getenv('POSTGREPASS')),
+        'PASSWORD': os.getenv('POSTGREPASS'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
