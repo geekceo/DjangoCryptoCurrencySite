@@ -3,5 +3,6 @@ from currency.views import *
 
 urlpatterns = [
     path('', index),  #main page
-    path('graphic/<str:currencyId>/', currency)
+    path('currencies/', currencyList),
+    path('currencies/<str:currencyId>/', currency)
 ]

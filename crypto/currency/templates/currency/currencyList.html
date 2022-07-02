@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>{{ title }}</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    {% block mainmenu %}
+    <ul>
+        {% for m, h in menu.items %}
+        <li><a href={{ h }}>{{ m }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock mainmenu %}
+
+    {% block content %}
+
+    <h2>Криптовалюты:</h2></br>
+    <ul>
+        {% for c, h in currencyList.items %}
+        <li><a href={{ h }}>{{ c }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% endblock content %}
+</body>
+</html>

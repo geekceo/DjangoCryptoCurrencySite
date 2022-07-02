@@ -7,4 +7,4 @@ class CryptoCurrency(models.Model):
     icon = models.ImageField('images/currency/')
 
     def __str__(self) -> str:
-        return self.name
+        return f'{self.name}:{self.shortname}'
