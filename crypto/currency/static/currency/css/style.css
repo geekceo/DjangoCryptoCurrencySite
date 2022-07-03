@@ -1,8 +1,6 @@
 html, body {
     font-family: 'Arial';
     margin: 0;
-    height: 100%;
-    width: 100%;
     color: #444
 }
 
@@ -22,8 +20,8 @@ img {
     height: auto;
 }
 
-.fullname_with_icon {
-    display: inline-block;
+div.logo {
+    margin-left: 1%;
 }
 
 .block {
@@ -50,7 +48,26 @@ a.amenu {
     padding:10px;
     font-family: arial;
     border-radius:4px;
-    -moz-transition: all 0.3s 0.01s ease;
-    -o-transition: all 0.3s 0.01s ease;
-    -webkit-transition: all 0.3s 0.01s ease;
+}
+
+b.percent_up {
+    background: #00b058;
+    color: #fff;
+    padding: 10px;
+    -moz-border-radius: 5px; /* Для Firefox 3 */
+    -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+    border-radius: 5px; /* Для современных браузеров */
+}
+
+b.percent_down {
+    background: #be0000;
+    color: #fff;
+    padding: 5px;
+    -moz-border-radius: 5px; /* Для Firefox 3 */
+    -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+    border-radius: 5px; /* Для современных браузеров */
+}
+
+p.desc {
+    margin-left: 1%;
 }

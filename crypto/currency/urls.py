@@ -2,7 +2,8 @@ from django.urls import URLPattern, path
 from currency.views import *
 
 urlpatterns = [
-    path('', index),  #main page
-    path('currencies/', currencyList),
-    path('currencies/<str:currencyId>/', currency)
+    path('', index, name='home'),  #main page
+    path('currencies/', currencyList, name='currencies'),
+    path('currencies/<str:currencyId>/', currency, name='currency'),
+    path('about/', currencyList, name='about')
 ]

@@ -13,7 +13,7 @@
     </br>
     <ul class="mainmenu">
         {% for m, h in menu.items %}
-        <li><a class="amenu" href={{ h }}>{{ m }}</a></li>
+        <li><a class="amenu" href="{% url h %}">{{ m }}</a></li>
         {% endfor %}
     </ul>
     </br>

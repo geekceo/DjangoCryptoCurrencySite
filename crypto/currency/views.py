@@ -18,6 +18,7 @@ def currency(request, currencyId) -> render:
         'currency/currency.html',
         { 
             'title': currencyId,
+            'menu': MAIN_MENU,
             'fullname': CryptoCurrency.objects.get(shortname=currencyId).name,
             'info': GET_CURRENCY_INFO(currencyId=currencyId),
             'icon': CryptoCurrency.objects.get(shortname=currencyId).iconpath,

@@ -4,8 +4,8 @@
 
 <h2>Криптовалюты:</h2>
 <ul>
-    {% for c, h in currencyList.items %}
-    <li><a href={{ h }}>{{ c }}</a></li>
+    {% for currency, hrefname in currencyList.items %}
+    <li><a href="{%url 'currency' hrefname %}">{{ currency }}</a></li>
     {% endfor %}
 </ul>
 
