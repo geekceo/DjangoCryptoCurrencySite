@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from currency.models import CryptoCurrency
-from currency.config import CURRENCY_PARAMS, MAIN_MENU, GET_CURRENCY_LIST
+from currency.config import MAIN_MENU, GET_CURRENCY_LIST, GET_CURRENCY_INFO
 
 
 def index(request) -> render:
@@ -18,7 +18,9 @@ def currency(request, currencyId) -> render:
         'currency/currency.html',
         { 
             'title': currencyId,
-            'params': CURRENCY_PARAMS,
+            'fullname': CryptoCurrency.objects.get(shortname=currencyId).name,
+            'info': GET_CURRENCY_INFO(currencyId=currencyId),
+            'icon': CryptoCurrency.objects.get(shortname=currencyId).iconpath,
             'description':  CryptoCurrency.objects.get(shortname=currencyId).description
         })
 

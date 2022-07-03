@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +6,17 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>{{ title }}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'currency/css/style.css' %}">
 </head>
 <body>
     {% block mainmenu %}
-    <ul>
+    </br>
+    <ul class="mainmenu">
         {% for m, h in menu.items %}
-        <li><a href={{ h }}>{{ m }}</a></li>
+        <li><a class="amenu" href={{ h }}>{{ m }}</a></li>
         {% endfor %}
     </ul>
+    </br>
     {% endblock mainmenu %}
 
     {% block content %}

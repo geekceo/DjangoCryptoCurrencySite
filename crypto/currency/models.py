@@ -5,6 +5,7 @@ class CryptoCurrency(models.Model):
     shortname = models.CharField(max_length=20)
     description = models.TextField(blank=True)
     icon = models.ImageField('images/currency/')
+    iconpath = models.CharField(max_length=96)
 
     def __str__(self) -> str:
         return f'{self.name}:{self.shortname}'
