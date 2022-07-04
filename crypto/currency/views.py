@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from currency.models import CryptoCurrency
-from currency.config import MAIN_MENU, GET_CURRENCY_LIST, GET_CURRENCY_INFO
+from currency.config import *
 
 
 def index(request) -> render:
@@ -32,7 +32,14 @@ def currencyList(request) -> render:
         { 
             'title': 'Криптовалюты',
             'menu': MAIN_MENU,
-            'currencyList': GET_CURRENCY_LIST()
+            'icons': dict(
+                zip(
+                    [icon.shortname for icon in CryptoCurrency.objects.all().order_by('id')],
+                    [icon.iconpath for icon in [elem for elem in CryptoCurrency.objects.all().order_by('id')]]
+            )),
+            'stableCurrencyList': GET_STABLE_CURRENCY_LIST_PREVIEW(),
+            'gamefiCurrencyList': GET_GAMEFI_CURRENCY_LIST_PREVIEW(),
+            'currencyList': GET_CURRENCY_LIST_PREVIEW()
         })
 
 def pageNotFound(request, exception) -> HttpResponseNotFound:

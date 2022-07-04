@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 
 class CryptoCurrency(models.Model):
@@ -6,6 +7,13 @@ class CryptoCurrency(models.Model):
     description = models.TextField(blank=True)
     icon = models.ImageField('images/currency/')
     iconpath = models.CharField(max_length=96)
+    cat = models.ForeignKey('Category', on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return f'{self.name}:{self.shortname}'
+
+class Category(models.Model):
+    name = models.CharField(max_length=96, db_index=True)
+
+    def __str__(self) -> str:
+        return self.name

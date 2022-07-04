@@ -1,32 +1,42 @@
 html, body {
     font-family: 'Arial';
     margin: 0;
+    margin-left: 1%;
     color: #444
 }
 
-a {
-    color: #0059b2;
+a.currency-item {
+    color: #000000;
     text-decoration: none;
 }
 
-a:hover {
-    color: #CC0000;
+/*a:hover {
+    color: #0059b2;
     text-decoration: underline;
-}
+}*/
 
-img {
+img.big-icon {
     width: 32px !important; 
     height: 32px !important;
-    height: auto;
 }
 
-div.logo {
-    margin-left: 1%;
+img.small-icon {
+    width: 16px !important; 
+    height: 16px !important;
 }
 
 .block {
     display: inline-block;
     font-size: 32px;
+}
+
+ul.info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.currency-list {
+    list-style-type: decimal;
 }
 
 ul.mainmenu {
@@ -36,9 +46,8 @@ ul.mainmenu {
 }
 
 ul.mainmenu li {
-
     float: left;
-    margin-right :5px;
+    margin-right: 5px;
 }
 
 a.amenu {
@@ -50,7 +59,7 @@ a.amenu {
     border-radius:4px;
 }
 
-b.percent_up {
+b.percent-up {
     background: #00b058;
     color: #fff;
     padding: 10px;
@@ -59,7 +68,7 @@ b.percent_up {
     border-radius: 5px; /* Для современных браузеров */
 }
 
-b.percent_down {
+b.percent-down {
     background: #be0000;
     color: #fff;
     padding: 5px;
@@ -68,6 +77,32 @@ b.percent_down {
     border-radius: 5px; /* Для современных браузеров */
 }
 
-p.desc {
+div.category {
+    display: inline-block;
+    width: 20%;
+    background: #ffffff;
+    color: rgb(0, 0, 0) !important;
+    padding: 5px;
+    -moz-border-radius: 5px; /* Для Firefox 3 */
+    -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+    border-radius: 5px; /* Для современных браузеров */
+    box-shadow: 0 0 10px rgba(0,0,0,0.15); /* Параметры тени */
+}
+
+span.type-titles {
+    display: inline-block;
+    font-size: 16px;
     margin-left: 1%;
+}
+
+span.more {
+    
+}
+
+a.more-currencies {
+    visibility: hidden;
+}
+
+span.shortname {
+    color: #808a9d;
 }

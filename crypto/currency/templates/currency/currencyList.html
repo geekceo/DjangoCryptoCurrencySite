@@ -1,12 +1,44 @@
 {% extends 'currency/base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h2>Криптовалюты:</h2>
-<ul>
-    {% for currency, hrefname in currencyList.items %}
-    <li><a href="{%url 'currency' hrefname %}">{{ currency }}</a></li>
+<br>
+<br>
+{% block all %}
+<div class="category">
+    <b><span class="type-titles">All</span></b><a class="more-currencies" href="#"><span class="more">more ></span></a>
+    <ul class="currency-list">
+        {% for currency, hrefname in currencyList.items %}
+            <li><img class="small-icon" src="{% static icons.forloop.counter0 %}"><a class="currency-item" href="{%url 'currency' hrefname %}"><b>{{ currency }}</b></a> <span class="shortname">{{ hrefname }}</span></li>
+            <br>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock all %}
+
+{% block stable %}
+<div class="category">
+    <b><span class="type-titles">Stables</span></b>
+    <ul class="currency-list">
+    {% for currency, hrefname in stableCurrencyList.items %}
+        <li><img class="small-icon" src="{% static icons.forloop.counter0 %}"><a class="currency-item" href="{%url 'currency' hrefname %}"><b>{{ currency }}</b></a> <span class="shortname">{{ hrefname }}</span></li>
+        <br>
     {% endfor %}
-</ul>
+    </ul>
+</div>
+{% endblock stable %}
+
+{% block gamefi %}
+<div class="category">
+    <b><span class="type-titles">GameFi</span></b>
+    <ul class="currency-list">
+    {% for currency, hrefname in gamefiCurrencyList.items %}
+        <li><img class="small-icon" src="{% static icons.forloop.counter0 %}"><a class="currency-item" href="{%url 'currency' hrefname %}"><b>{{ currency }}</b></a> <span class="shortname">{{ hrefname }}</span></li>
+        <br>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock gamefi %}
 
 {% endblock content %}

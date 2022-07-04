@@ -4,19 +4,19 @@
 {% block content %}
     {% block logo %}
     <div class="logo">
-        <img class="block" src="{% static icon %}">
+        <img class="block big-icon" src="{% static icon %}">
         <h2 class="block">{{ fullname }}</h2>
     </div>
     {% endblock logo %}
     {% block info %}
-    <ul style="list-style: none;">
+    <ul class="info-list">
         {% for param, key in info.items %}
             <br>
             {% if 'Изменение' in param %}
                 {% if '-' in key %}
-                    <li>{{ param }}<b class="percent_down">▾{{ key|cut:"-" }}</b></li>
+                    <li>{{ param }}<b class="percent-down">▾{{ key|cut:"-" }}</b></li>
                 {% else %}
-                    <li>{{ param }}<b class="percent_up">▴{{ key }}</b></li>
+                    <li>{{ param }}<b class="percent-up">▴{{ key }}</b></li>
                 {% endif %}
             {% else %}
                 <li>{{ param }}{{ key }}</li>

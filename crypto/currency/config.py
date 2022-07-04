@@ -14,6 +14,30 @@ def GET_CURRENCY_LIST() -> dict:
             )
         )
 
+def GET_CURRENCY_LIST_PREVIEW() -> dict:
+    return dict(
+        zip(
+            [x.name for x in CryptoCurrency.objects.filter(pk__lte=3).order_by('id')],
+            [x.shortname for x in CryptoCurrency.objects.filter(pk__lte=3).order_by('id')]
+            )
+        )
+
+def GET_STABLE_CURRENCY_LIST_PREVIEW() -> dict:
+    return dict(
+        zip(
+            [x.name for x in CryptoCurrency.objects.filter(cat_id=1).order_by('id')],
+            [x.shortname for x in CryptoCurrency.objects.filter(cat_id=1).order_by('id')]
+            )
+        )
+
+def GET_GAMEFI_CURRENCY_LIST_PREVIEW() -> dict:
+    return dict(
+        zip(
+            [x.name for x in CryptoCurrency.objects.filter(cat_id=2).filter(pk__gte=3).order_by('id')],
+            [x.shortname for x in CryptoCurrency.objects.filter(cat_id=2).filter(pk__gte=3).order_by('id')]
+            )
+        )
+
 def GET_CURRENCY_INFO(currencyId: str) -> dict:
     res = requests.get(f'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol={currencyId}&CMC_PRO_API_KEY={COINMARKETCAP_API_KEY}').json()
     data = res['data'][currencyId][0]['quote']['USD']
