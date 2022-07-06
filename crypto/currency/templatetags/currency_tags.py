@@ -22,8 +22,8 @@ def getAllCurrencyListPreview() -> dict:
             )
         )
 
-@register.simple_tag()
-def getAllCurrencyList(name='allCurrency') -> dict:
+@register.simple_tag(name='allCurrency')
+def getAllCurrencyList() -> dict:
     return dict(
         zip(
             [x.name for x in CryptoCurrency.objects.filter(pk__lte=3).order_by('id')],

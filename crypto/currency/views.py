@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from currency.models import CryptoCurrency, Category
 from currency.config import *
 
@@ -8,19 +8,21 @@ def index(request) -> render:
     return render(request,
         'currency/index.html',
         {
-            'title': 'Страница',
+            'title': 'Главная страница',
             'menu': MAIN_MENU
         })
 
 def currency(request, currencyId) -> render:
+    currency = get_object_or_404(CryptoCurrency, shortname=currencyId)
+
     return render(
         request,
         'currency/currency.html',
         { 
             'currencyId': currencyId,
             'menu': MAIN_MENU,
-            'fullname': CryptoCurrency.objects.get(shortname=currencyId).name,
-            'icon': CryptoCurrency.objects.get(shortname=currencyId).icon.url,
+            'fullname': currency.name,
+            'icon': currency.icon.url,
         })
 
 def currencyList(request) -> render:
