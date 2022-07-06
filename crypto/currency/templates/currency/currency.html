@@ -1,34 +1,16 @@
 {% extends 'currency/base.html' %}
+{% load currency_tags %}
 {% load static %}
 
 {% block content %}
     {% block logo %}
     <div class="logo">
-        <img class="block big-icon" src="{% static icon %}">
+        <img class="block big-icon" src="{{ icon }}">
         <h2 class="block">{{ fullname }}</h2>
     </div>
     {% endblock logo %}
-    {% block info %}
-    <ul class="info-list">
-        {% for param, key in info.items %}
-            <br>
-            {% if 'Изменение' in param %}
-                {% if '-' in key %}
-                    <li>{{ param }}<b class="percent-down">▾{{ key|cut:"-" }}</b></li>
-                {% else %}
-                    <li>{{ param }}<b class="percent-up">▴{{ key }}</b></li>
-                {% endif %}
-            {% else %}
-                <li>{{ param }}{{ key }}</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    {% endblock info %}
+    
 
-    <hr>
-
-    {% block description %}
-    <p class="desc">{{ description }}</p>
-    {% endblock description %}
+{% showCurrencyInfo currencyId %}
 
 {% endblock content %}

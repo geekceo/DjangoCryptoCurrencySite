@@ -1,4 +1,6 @@
 from django.urls import URLPattern, path
+from django.conf import settings
+from django.conf.urls.static import static
 from currency.views import *
 
 urlpatterns = [

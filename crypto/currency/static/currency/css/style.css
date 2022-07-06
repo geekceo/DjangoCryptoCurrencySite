@@ -99,8 +99,19 @@ span.more {
     
 }
 
+div.category-title
+{
+    display: flex;
+    flex-flow: row wrap;
+}
+
 a.more-currencies {
-    visibility: hidden;
+    position: relative;
+    text-decoration: none;
+    color: rgb(56, 97, 251);
+    margin: 0 10px;
+    order: 999;
+    margin-left: auto;
 }
 
 span.shortname {
